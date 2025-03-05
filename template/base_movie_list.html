@@ -1,0 +1,19 @@
+{% extends 'header.html' %}
+
+{% block content %}<br>
+
+<div class="row">
+    {% for movie in movies %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="{{ movie.poster.url }}" class="card-img-top" alt="{{ movie.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <p class="card-text">{{ movie.description|truncatewords:15 }}</p>
+                    <a href="{% url 'user_login' %}" class="btn btn-primary">View Details</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
